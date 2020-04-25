@@ -1,21 +1,11 @@
 version: '3'
 services:
-  api:
-    image: node-web-app
-    build: .
-    networks:
-      - backend
+  product-catalog:
+    container_name: product_catalog
+    build:
+      context: ./services/product_catalog
+      dockerfile: Dockerfile
     ports:
       - '3000:8080'
     volumes:
-      - ./:/usr/src/app
-
-  web-cli:
-    image: node-web-app
-    networks:
-      - backend
-    command: sh
-
-networks:
-  backend:
-    driver: bridge
+      - ./services/product_catalog:/usr/src/app/
