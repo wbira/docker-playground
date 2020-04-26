@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/services/product_catalog/server.ts",
+      "program": "${workspaceFolder}/services/note-managment/server.ts",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
@@ -19,11 +19,11 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Attach to product_catalog",
+      "name": "Attach to note-managment",
       "address": "localhost",
       "port": 9229,
       "sourceMapPathOverrides": {
-        "/usr/src/app/*": "${workspaceRoot}/services/product_catalog/*"
+        "/usr/src/app/*": "${workspaceRoot}/services/note-managment/*"
       },
       "protocol": "inspector"
     }

@@ -1,14 +1,14 @@
 version: '3'
 services:
   product-catalog:
-    container_name: product_catalog
+    container_name: note-managment
     build:
-      context: ./services/product_catalog
+      context: ./services/note-managment
       dockerfile: Dockerfile
     ports:
       - '3000:8080'
       - '9229:9229'
     volumes:
-      - ./services/product_catalog:/usr/src/app/
+      - ./services/note-managment:/usr/src/app/
       - ./nodemon.json:/usr/src/app/nodemon.json
     command: npm start
