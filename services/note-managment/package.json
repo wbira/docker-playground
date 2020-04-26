@@ -6,8 +6,7 @@
   "main": "server.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && nodemon dist/server.js",
-    "start": "nodemon ./server.ts"
+    "start": "nodemon ./src/server.ts"
   },
   "dependencies": {
     "express": "^4.16.1"
