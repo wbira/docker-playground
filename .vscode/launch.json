@@ -19,11 +19,12 @@
     {
       "type": "node",
       "request": "attach",
-      "name": "Docker node",
+      "name": "Attach to product_catalog",
       "address": "localhost",
       "port": 9229,
-      "localRoot": "${workspaceFolder}",
-      "remoteRoot": "/app",
+      "sourceMapPathOverrides": {
+        "/usr/src/app/*": "${workspaceRoot}/services/product_catalog/*"
+      },
       "protocol": "inspector"
     }
   ]
