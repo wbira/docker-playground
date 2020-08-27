@@ -5,7 +5,7 @@
   "author": "waldek.bira@gmail.com",
   "main": "server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --outDir ./dist",
     "start": "nodemon ./src/server.ts"
   },
   "dependencies": {
