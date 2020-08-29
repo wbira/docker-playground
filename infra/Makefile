@@ -2,7 +2,7 @@ noteDeployment:
 	kubectl apply -f deployments/note.yaml
 
 exposeNote:
-	kubectl expose deployment note --type=NodePort --port=8080
+	kubectl expose deployment note --port=8080
 
 deployNote: noteDeployment exposeNote
 
@@ -10,7 +10,7 @@ notificationDeployment:
 	kubectl apply -f deployments/notification.yaml
 
 exposeNotification:
-	kubectl expose deployment notification --type=NodePort --port=8081
+	kubectl expose deployment notification --port=8081
 
 deployNotification:	notificationDeployment exposeNotification
 
@@ -34,4 +34,4 @@ deleteNotificationDeployment:
 deleteIngress:
 	kubectl delete ingress noter-ingress
 
-deleteAll: 	deleteNoteService deleteNoteDeployment deleteNotificationService deleteNotificationDeployment deleteIngress
+deleteAll: deleteNoteService deleteNoteDeployment deleteNotificationService deleteNotificationDeployment deleteIngress
