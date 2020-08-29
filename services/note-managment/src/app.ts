@@ -5,6 +5,6 @@ import router from './routes/note-managment-routes'
 const app = express()
 
 app.use(express.json())
-app.use('/note', router, (_, response: Response) => response.sendStatus(401))
+app.use('/', router, (_, response: Response) => response.sendStatus(401))
 
 export default app;

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note
+spec:
+  selector:
+    matchLabels:
+      run: note
+  replicas: 1
+  template:
+    metadata:
+        labels:
+            run: note
+    spec:
+      containers:
+      - name: note-service
+        image: wbira/note-managment:latest
