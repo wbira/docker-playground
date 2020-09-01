@@ -1,3 +1,4 @@
+# deployment commands
 noteDeployment:
 	kubectl apply -f deployments/note.yaml
 
@@ -14,10 +15,6 @@ exposeNotification:
 
 deployNotification:	notificationDeployment exposeNotification
 
-ingress:
-	kubectl apply -f ingress.yaml
-
-deploy: deployNote deployNotification ingress
 
 deleteNoteService:
 	kubectl delete service note
@@ -31,7 +28,22 @@ deleteNotificationService:
 deleteNotificationDeployment:
 	kubectl delete deployment notification
 
+# ingress commands
+ingress:
+	kubectl apply -f ingress.yaml
+
 deleteIngress:
 	kubectl delete ingress noter-ingress
+
+# mongo
+
+ss:
+	kubectl apply -f db/statefulset.yaml
+
+service:
+	kubectl apply -f db/service.yaml
+
+# deploy/remove whole project form minikube
+deploy: deployNote deployNotification ingress
 
 deleteAll: deleteNoteService deleteNoteDeployment deleteNotificationService deleteNotificationDeployment deleteIngress
