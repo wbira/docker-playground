@@ -9,7 +9,7 @@ spec:
   - host: noter.info
     http:
       paths:
-      - path: /
+      - path: /note/?(.*)
         backend:
           serviceName: note
           servicePort: 8080

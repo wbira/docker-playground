@@ -1,21 +1,23 @@
 import { Request, Response } from 'express'
 import Note from '../models/note';
+import HttpStatusCodes from 'http-status-codes'
+import { v4 as uuidv4 } from 'uuid';
 
 export const createNote = async (req: Request, res: Response) => {
-  console.log("Note created!!!\n\n\n");
-  console.log(req)
-
+  const { author, text } = req.body;
+  console.log("Created")
   try {
     const note = new Note({
-      author: "Dummy",
+      noteId: uuidv4(),
+      author,
       date: Date.now(),
-      text: "Some text"
+      text
     })
     const savedNote = await note.save()
-    res.status(201).json(savedNote);
+    res.status(HttpStatusCodes.CREATED).json(savedNote);
   } catch (error) {
     console.error(error.message)
-    res.status(500).send(error)
+    res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).send(error)
   }
 
 }

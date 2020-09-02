@@ -9,6 +9,12 @@ const app = express()
 connectDB()
 
 app.use(express.json())
-app.use('/', router, (_, response: Response) => response.sendStatus(401))
+app.use((req, res, next)=> {
+    console.log(req.baseUrl, req.path, req.params)
+
+    console.log('I run on every request!');
+    next();
+  })
+app.use('/', router)
 
 export default app;

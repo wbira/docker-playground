@@ -3,6 +3,7 @@ import { Document, Model, model, Schema } from "mongoose";
 export interface INote extends Document {
     author: string
     date: Date
+    noteId: String
     text: string
 }
 
@@ -14,6 +15,10 @@ const noteSchema: Schema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    noteId: {
+        type: String,
+        required: true
     },
     text: {
         type: String,
